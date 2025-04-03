@@ -962,7 +962,7 @@ class FinanceTrackerApp:
         for item in self.tree.get_children(): self.tree.delete(item)
 
         # Sort by date (descending), then by timestamp ID for same-day order
-        sorted_transactions = sorted(transactions_to_display, key=lambda x: (x.get('date', '0'), x.get('id', 0)), reverse=True)
+        sorted_transactions = sorted(transactions_to_display, key=lambda x: (x.get('date', '0'), str(x.get('id', 0))), reverse=True)
 
         for i, trans in enumerate(sorted_transactions):
             amount = trans.get('amount', 0.0)
